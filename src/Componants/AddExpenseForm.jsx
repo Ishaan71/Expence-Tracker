@@ -4,7 +4,7 @@ import { TrendingUp } from "lucide-react";
 import { TrendingDown } from "lucide-react";
 import { useState } from "react";
 
-const AddExpenseForm = ({ allData, setallData }) => {
+const AddExpenseForm = ({setallData }) => {
   const deskRef = useRef(null);
   const amountRef = useRef(null);
   const cateRef = useRef(null);
@@ -50,7 +50,7 @@ const AddExpenseForm = ({ allData, setallData }) => {
     });
 
     setformdata({
-      Description: "",    
+      Description: "",
       Amount: "",
       Category: "Salary",
       Date: "",
@@ -59,12 +59,12 @@ const AddExpenseForm = ({ allData, setallData }) => {
   };
   const handleKeyDown = (e, nextRef) => {
     if (e.key === "Enter") {
-      e.preventDefault(); // Stop default enter behavior
+      e.preventDefault();
 
       if (nextRef && nextRef.current) {
-        nextRef.current.focus(); // Next input pe focus
+        nextRef.current.focus(); 
       } else {
-        handleSubmit(); // Agar nextRef nahi milta → form submit
+        handleSubmit(); 
       }
     }
   };
@@ -74,10 +74,6 @@ const AddExpenseForm = ({ allData, setallData }) => {
       return { ...prev, status: statusName };
     });
   };
-
-
-
-
 
   return (
     <div className="p-5 flex flex-col border w-full max-w-[320px] min-w-[300px] max-h-[550px]   border-white/40 rounded-2xl mt-5 gap-3">

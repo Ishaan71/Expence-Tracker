@@ -1,31 +1,17 @@
 import React from "react";
 import { TrendingUp } from "lucide-react";
-import { TrendingDown } from 'lucide-react';
-import { DollarSign } from 'lucide-react';
+import { TrendingDown } from "lucide-react";
+import { DollarSign } from "lucide-react";
 
-const SummaryCard = ({allData}) => {
+const SummaryCard = ({ allData }) => {
+  const income = allData
+    .filter((item) => item.status === "Income")
+    .reduce((acc, item) => acc + Number(item.Amount), 0);
 
-  const income = allData.filter((item)=> item.status === "Income")
-  .reduce((acc,item)=> acc+Number(item.Amount),0)
+  const expense = allData
+    .filter((item) => item.status === "Expense")
+    .reduce((acc, item) => acc + Number(item.Amount), 0);
 
-
-  const expense = allData.filter((item)=> item.status === "Expense")
-  .reduce((acc,item)=> acc+Number(item.Amount),0)
-
-
-  //  const incomeAmount =()=>{
-  //   return income.reduce((acc,item)=>{
-  //     return acc+Number(item.Amount)},0)
-  //  }
-
-  //  const expense = allData.filter((item)=>{
-  //   return item.status === "Expense"
-  //  })
-  //  const expenseAmount =()=>{
-  //   return expense.reduce((acc,item)=>{
-  //     return acc+Number(item.Amount)
-  //   },0)
-  //  }
   return (
     <div className="text-white  grid grid-cols-3 gap-10 mt-20">
       <div className=" flex items-center justify-between p-5 w-full rounded-2xl bg-gradient-to-r border shadow-xl border-emerald-500/20  from-emerald-500/10 to-emerald-600/10 ">
